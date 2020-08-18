@@ -9,7 +9,7 @@ export default function Searchbar() {
                 <input ref={ingredientSearch} type="text"></input>
 
             </div>
-            <div>
+            <div className="buttons">
             <button> StrictMode </button>
             <button className="buttonsearch"> Search ! </button>
             </div>

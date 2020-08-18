@@ -1,3 +1,7 @@
+body {
+  margin: 0rem;
+}
+
 .App {
   height: 1000px;
   text-align: center;
@@ -8,23 +12,13 @@
   flex-direction: column;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .Topbar {
   
   width: 100%;
   height: 15vh;
   /* position: fixed; */
-  background: radial-gradient(yellow, gold, orange, darkorange, crimson, turquoise , darkslateblue 70%);
+  background: radial-gradient(yellow, gold, orange, darkorange, crimson, darkslateblue 70%);
   box-shadow:  0px 0px 6px 6px white;
   border-width: 8px;
   border-color: blue;
@@ -34,57 +28,83 @@
   width: 100%;
   height: 100%;
   object-fit: scale-down;
-  background: linear-gradient(rgba(255, 255, 255, 0.8), transparent, transparent, transparent, transparent 90%, rgba(08,08,08, 0.8))
+  background: linear-gradient(rgba(255, 255, 255, 0.8), transparent, transparent, transparent, transparent, transparent 90%, rgba(08,08,08, 0.8))
 }
 
 .searchbar {
-  top: 130px;
+  margin: auto;
   width: 80%;
   height: 10vh;
-  background: linear-gradient(seagreen, green, seagreen);
+  border-radius: 25px;
+  background: linear-gradient(gold, yellow, gold);
   display: flex;
   justify-content: space-between;
   align-content: center;
 }
 
 .search {
-  background-color: rgba(200, 50, 250, 0.5);
+  
   border-radius: 25px;
   width: 70%;
 }
 
-button {
-  background: none;
-  width: 50%;
-  height: 100%;
-  font-size: large;
-  color: white;
+.buttons {
+  border-left-width: 1px;
 }
 
+button {
+  background: none;
+  padding: 8px;
+  /* width: 50%; */
+  height: 100%;
+  
+  border-width: 0px 1px 0px 0px;
+  font-size: large;
+  font-weight: bolder;
+  color: darkslateblue;
+  cursor: pointer
+}
+input{
+  width: 80%;
+  height: 30%;
+  border-radius: 8px;
+  background: rgba(255,215,0, 0.8)
+}
+button:focus {
+  background: linear-gradient(goldenrod, gold, goldenrod)
+}
 .buttonsearch {
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
 }
 
-/* .App-header {
-  min-height: 100vh;
+.result {
+  margin: auto;
+  border-radius: 50px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
-
-.App-link {
-  color: #61dafb;
+  align-content: space-around;
+  color: azure;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.popular {
+  padding: 8px;
+  border-radius: 60px;  
+  display: flex;
+  flex-direction: column;
 }
+
+.popcard{
+  display: flex;
+  flex-direction: row;
+}
+
+.popimage {
+  margin: 8px;
+  width: 20rem;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px 4px black;
+}
+
+
