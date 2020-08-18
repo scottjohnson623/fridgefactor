@@ -11,15 +11,17 @@ router.get("/starred", async function(req, res) {
 
 router.post("/starred", async function(req, res) {
     await db("starred_recipes").insert(req.body);
+    res.send("You have starred a recipe!");
 });
 
-router.get("/made_recipes", async function(req, res) {
+router.get("/made", async function(req, res) {
     const madeRecipeData = await db.select().table("made_recipes");
     res.send(madeRecipeData);
 });
 
-router.post("/made_recipes", async function(req, res) {
+router.post("/made", async function(req, res) {
     await db("made_recipes").insert(req.body);
+    res.send("You have made a recipe!");
 });
 
 
