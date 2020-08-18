@@ -1,11 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from '../logo.svg';
+import '../style/App.css';
+import Topbar from "./Topbar"
+import Searchbar from './Searchbar';
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <Topbar />
+      <Searchbar />
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -18,9 +21,9 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      
     </div>
   );
 }
 
-export default App;
+
