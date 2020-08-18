@@ -4,19 +4,22 @@ const db = require("../db");
 
 /* FIXME */
 
-router.get("/stared", async function(req, res) {
-  const notesData = await db.select().table("stared_recipes");
-  res.send(notesData);
+router.get("/starred", async function(req, res) {
+    const starredRecipeData = await db.select().table("starred_recipes");
+    res.send(starredRecipeData);
 });
 
-router.post("/stared", async function(req, res) {
-    await db("stared_recipes").insert(req.body);
-  });
+router.post("/starred", async function(req, res) {
+    await db("starred_recipes").insert(req.body);
+});
 
-router.get("/user/:id", async function(req, res) {
-  const notesData = await db.select().table("user");
-  notesData.filter((note) => note.id === id);
-  res.send(notesData);
+router.get("/made_recipes", async function(req, res) {
+    const madeRecipeData = await db.select().table("made_recipes");
+    res.send(madeRecipeData);
+});
+
+router.post("/made_recipes", async function(req, res) {
+    await db("made_recipes").insert(req.body);
 });
 
 
