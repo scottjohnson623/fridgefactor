@@ -2,12 +2,16 @@
   "name": "fridgefactor",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5432",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "knex": "^0.21.5",
+    "nodemon": "^2.0.4",
     "pg": "^8.3.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -16,11 +20,13 @@
     "redux": "^4.0.5"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server",
+    "reactstart": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "migrate": "knex migrate:latest"
+    "migrate": "knex migrate:latest",
+    "nodemon": "nodemon ./server/index"
   },
   "eslintConfig": {
     "extends": "react-app"
