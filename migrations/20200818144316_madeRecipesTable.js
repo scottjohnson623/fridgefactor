@@ -16,7 +16,7 @@ exports.up = function(knex) {
 
         table.text("comments");
       })
-      .createTable("stared_recipes", (table) => {
+      .createTable("starred_recipes", (table) => {
         table.increments().index();
 
         table
@@ -37,5 +37,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-    knex.schema.dropTableIfExists("made_recipes")
+    knex.schema.dropTableIfExists("made_recipes").dropTableIfExists("starred_recipes")
 };
