@@ -4,6 +4,7 @@ import Topbar from "./Topbar"
 import Searchbar from './Searchbar';
 import ResultList from './ResultList';
 import RightPanel from './RightPanel';
+import LoginScreen from './LoginScreen';
 
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
       <ResultList />
         
       <RightPanel />
+      <LoginScreen />
       
     </div>
   );
