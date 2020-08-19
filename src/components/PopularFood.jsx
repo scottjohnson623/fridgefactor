@@ -36,7 +36,7 @@ export default function PopularFood() {
         randomR.map(recipe => {
             return (
             <div className="popular">
-                <label>{recipe.name}</label>
+                <h1>{recipe.name}</h1>
                 <div className="popcard">
                     <img className="popimage" src={recipe.image}></img>
                     <h3>Ingredients: {recipe.ingredients}</h3>
