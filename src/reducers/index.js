@@ -19,8 +19,6 @@ function reducer(state = initialState, action) {
       return { ...state, starred: action.payload };
     case "SET_MADE":
       return { ...state, made: action.payload };
-    case "SET_INGREDIENTS":
-      return { ...state, ingredients: action.payload };
     case "SET_FOOD":
       return { ...state, food: action.payload };
     case "SET_TEXT":
