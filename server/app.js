@@ -1,6 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const axios = require("axios");
+const dbRoutes = require("../routes");
+const path = require("path");
+const app = express();
 const API_KEY = process.env.API_KEY;
 const passport = require("passport");
 const cookieParser = require("cookie-parser");
@@ -10,11 +13,16 @@ const app = express();
 const auth = require("./routes/auth");
 const user = require("./routes/user");
 
-app.use(express.static(path.join(__dirname, "..", "..", "client")));
 app.use(cookieParser(process.env.SECRET_KEY));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(express.static(path.resolve(__dirname, "..", "build")));
+app.get("/", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "..", "build", "index.html"));
+});
 
 app.use(
   session({
@@ -28,6 +36,7 @@ app.use(passport.session());
 
 app.use("/auth", auth);
 app.use("/user", user);
+app.use("/api", dbRoutes);
 
 // recipes
 app.get("/recipes", async (req, res) => {
@@ -35,7 +44,6 @@ app.get("/recipes", async (req, res) => {
     method: "GET",
     url: "https://recipe-puppy.p.rapidapi.com/",
     headers: {
-      "content-type": "application/json",
       "x-rapidapi-host": "recipe-puppy.p.rapidapi.com",
       "x-rapidapi-key": API_KEY,
       useQueryString: true,
