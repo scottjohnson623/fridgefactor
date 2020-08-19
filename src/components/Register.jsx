@@ -12,21 +12,19 @@ export default function Register() {
     const [password, setPassword] = useState('');
 
     const handleClick = async (event) => {
-        var payload={
+        let payload={
         "username": username,
         "password": password
         }
-        await axios.post("/auth/register", payload)
-    .then(function (response) {
-        console.log(response);
+        const response = await axios.post("/auth/register", payload)
+        console.log(response.json({}));
         if(response.data.code == 200){
         console.log("registration successfull");
+        } else {
+        console.log("registration failed");
         }
-    })
-    .catch(function (error) {
-        console.log(error);
-    });
-    }
+    };
+    
     
     return (
       <div>

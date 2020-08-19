@@ -12,12 +12,12 @@ export default function LoginScreen() {
 
     function handleClick() {
         if(toggleUserReg){
-            setLoginMessage("Already registered.Go to Login")
+            setLoginMessage("Already registered? Go to Login")
             setButtonLabel("Login")
             setToggleUserReg(!toggleUserReg)
         }
         else{
-            setLoginMessage("Not registered yet, Register Now")
+            setLoginMessage("Not registered yet, Register Now!")
             setButtonLabel("Register")
             setToggleUserReg(!toggleUserReg)
         }
