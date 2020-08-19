@@ -5,6 +5,7 @@ const dbRoutes = require("../routes");
 const path = require("path");
 const app = express();
 const API_KEY = process.env.API_KEY;
+import store from "../src/reducers/index"
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,6 +27,7 @@ app.get("/recipes", async (req, res) => {
       useQueryString: true,
     },
   });
+  store.dispatch({ type: "SET_RECIPES", payload: getAllRecipes.data });
   res.send(getAllRecipes.data);
 });
 
