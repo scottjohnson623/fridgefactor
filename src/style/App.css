@@ -19,7 +19,7 @@ body::-webkit-scrollbar-thumb {
 
 .App {
   text-align: center;
-  background-color: #282c34;
+  background-color: lightcyan;
   display: flex;
   align-content: center;
   flex-direction: column;
@@ -29,7 +29,7 @@ body::-webkit-scrollbar-thumb {
 .Topbar {
   width: 100%;
   height: 12vh;
-  background: radial-gradient(yellow, gold, orange, darkorange, crimson, darkslateblue 80%);
+  background: radial-gradient(yellow, gold, orange, black 80%);
   box-shadow:  0px 0px 6px 6px white;
   border-width: 8px;
   border-color: blue;
@@ -40,12 +40,10 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
   height: 6vh;
   object-fit: scale-down;
-  background: linear-gradient(rgba(255, 255, 255, 0.8), transparent, transparent, transparent, transparent, transparent 90%, rgba(08,08,08, 0.8))
+  background: linear-gradient(rgba(255, 255, 255, 0.8), transparent, transparent, transparent, transparent, transparent 90%, rgba(20,20,20, 0.8))
 }
 
 .loginicon {
-  
-  float: right;
   height: 50%;
   cursor: pointer;
 }
@@ -56,6 +54,7 @@ body::-webkit-scrollbar-thumb {
   height: 5rem;
   border-radius: 25px;
   background: linear-gradient(gold, yellow, gold);
+  box-shadow: 0px 0px 4px 4px black;
   display: flex;
   justify-content: space-between;
   align-content: center;
@@ -107,24 +106,29 @@ button:focus {
   flex-direction: column;
   justify-content: center;
   align-content: space-around;
-  color: azure;
+  color: gold;
 }
 
-.popular {
+.recipecard {
   padding: 8px;
+  width: 28rem;
+  background-color: rgba(20,255,150, 0.5);
   border-radius: 60px;  
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
+  align-content: space-around;
+  flex-direction: row;
+  /* flex-wrap: wrap; */
 }
 
-.popcard{
+.recipecontent {
   display: flex;
   flex-direction: row;
 }
 
-.popimage {
+.recipeimage {
   margin: 8px;
-  width: 20rem;
+  width: 8rem;
   border-radius: 8px;
   box-shadow: 2px 2px 8px 4px black;
 }
@@ -132,15 +136,21 @@ button:focus {
 .rightpanel {
   margin: 0 0 0 auto;
   padding: 8px;
+  top: 1vh;
   width: 22rem;
-  height: 82vh;
+  height: 96vh;
   position: fixed;
-  top: 14vh;
-  right:0;
+  right:-22rem;
   overflow-y: scroll;
   background: linear-gradient(azure,white,azure,white, azure 95%, powderblue);
   border-radius: 8px;
   box-shadow: 0px 0px 2px 2px black, 0px 0px 10px 10px azure;
+  transition: 1s;
+}
+
+.rightpanel:hover {
+  right:0;
+  transition: 1s;
 }
 
 .rightpanel::-webkit-scrollbar {
@@ -153,8 +163,8 @@ button:focus {
 }
  
 .rightpanel::-webkit-scrollbar-thumb {
-  background-color: white;
-  box-shadow: 0px 0px 10px 10px  powderblue;
+  background-color: black;
+  box-shadow: 0px 0px 12px 12px gold;
   border-radius: 8px;
 }
 
