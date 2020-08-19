@@ -7,15 +7,13 @@ const app = express();
 const API_KEY = process.env.API_KEY;
 const passport = require("passport");
 const cookieParser = require("cookie-parser");
-const path = require("path");
 const session = require("express-session");
-const app = express();
 const auth = require("./routes/auth");
 const user = require("./routes/user");
+const db = require("../db");
 
 app.use(cookieParser(process.env.SECRET_KEY));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -71,19 +69,46 @@ app.get("/recipes/:ingredients", async (req, res) => {
   res.send(getFilteredRecipes.data);
 });
 
-// app.get("/user/receipes/", async (req, res) => {
-//   db.select().table('made_recipes');
-//   const getAllRecipes = await axios({
-//     method: "GET",
-//     url: "https://recipe-puppy.p.rapidapi.com/",
-//     headers: {
-//       "content-type": "application/json",
-//       "x-rapidapi-host": "recipe-puppy.p.rapidapi.com",
-//       "x-rapidapi-key": API_KEY,
-//       useQueryString: true,
-//     },
-//   });
-//   res.send(getAllRecipes.data);
-// });
+app.get("/user/recipes/", async (req, res) => {
+  const madeRecipes = await db
+    .select()
+    .table("made_recipes")
+    .where({ user_id: req.user.id });
+  const staredRecipes = await db
+    .select()
+    .table("stared_recipes")
+    .where({ user_id: req.user.id });
+  const recipes = { madeRecipes, staredRecipes };
+  res.send(recipes);
+});
+
+const qs = require("qs");
+
+app.post("/share", async (req, res) => {
+  console.log(req.body);
+  await axios(
+    qs.stringify({
+      method: "POST",
+      url: "https://mailrecipe.p.rapidapi.com/gaemail/send/",
+      headers: {
+        "content-type": "application/x-www-form-urlencoded",
+        "x-rapidapi-host": "mailrecipe.p.rapidapi.com",
+        "x-rapidapi-key": process.env.API_KEY,
+        useQueryString: true,
+      },
+      data: {
+        body: req.body.body,
+        to: req.body.to,
+        subject: req.body.subject,
+      },
+    })
+  )
+    .then(() => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.log("not working biatch", err);
+    });
+});
 
 module.exports = app;
