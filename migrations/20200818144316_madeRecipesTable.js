@@ -8,15 +8,15 @@ exports.up = function(knex) {
         .references('id')
         .inTable('user')
     
-        table.text("recipe_name");
+        table.text("title");
     
-        table.text("url");
+        table.text("href");
 
-        table.integer("rating");
+        table.text("ingredients");
 
-        table.text("comments");
+        table.text("thumbnail");
       })
-      .createTable("stared_recipes", (table) => {
+      .createTable("starred_recipes", (table) => {
         table.increments().index();
 
         table
@@ -28,14 +28,16 @@ exports.up = function(knex) {
         .references('id')
         .inTable('made_recipes')
     
-        table.text("api_title");
+        table.text("title");
     
-        table.text("url");
+        table.text("href");
 
-        table.text("image");
+        table.text("ingredients");
+
+        table.text("thumbnail");
       });
 };
 
 exports.down = function(knex) {
-    knex.schema.dropTableIfExists("made_recipes")
+    knex.schema.dropTableIfExists("made_recipes").dropTableIfExists("starred_recipes")
 };
