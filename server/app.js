@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/api", dbRoutes);
 
 app.use(express.static(path.resolve(__dirname, "..", "build")));
-app.get("*", (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile(path.resolve(__dirname, "..", "build", "index.html"));
 });
 
@@ -20,7 +20,6 @@ app.get("/recipes", async (req, res) => {
     method: "GET",
     url: "https://recipe-puppy.p.rapidapi.com/",
     headers: {
-      "content-type": "application/json",
       "x-rapidapi-host": "recipe-puppy.p.rapidapi.com",
       "x-rapidapi-key": API_KEY,
       useQueryString: true,
