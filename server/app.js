@@ -7,9 +7,7 @@ const app = express();
 const API_KEY = process.env.API_KEY;
 const passport = require("passport");
 const cookieParser = require("cookie-parser");
-const path = require("path");
 const session = require("express-session");
-const app = express();
 const auth = require("./routes/auth");
 const user = require("./routes/user");
 
