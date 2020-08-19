@@ -5,16 +5,40 @@ const dbRoutes = require("../routes");
 const path = require("path");
 const app = express();
 const API_KEY = process.env.API_KEY;
+const passport = require("passport");
+const cookieParser = require("cookie-parser");
+const path = require("path");
+const session = require("express-session");
+const app = express();
+const auth = require("./routes/auth");
+const user = require("./routes/user");
 
+app.use(cookieParser(process.env.SECRET_KEY));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use("/api", dbRoutes);
 
 app.use(express.static(path.resolve(__dirname, "..", "build")));
 app.get("/", (req, res) => {
   res.sendFile(path.resolve(__dirname, "..", "build", "index.html"));
 });
 
+app.use(
+  session({
+    secret: process.env.SECRET_KEY,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use("/auth", auth);
+app.use("/user", user);
+app.use("/api", dbRoutes);
+
+// recipes
 app.get("/recipes", async (req, res) => {
   const getAllRecipes = await axios({
     method: "GET",
@@ -35,7 +59,7 @@ app.get("/recipes/:ingredients", async (req, res) => {
     headers: {
       "content-type": "application/octet-stream",
       "x-rapidapi-host": "recipe-puppy.p.rapidapi.com",
-      "x-rapidapi-key": API_KEY,
+      "x-rapidapi-key": process.env.API_KEY,
       useQueryString: true,
     },
     params: {
@@ -46,5 +70,20 @@ app.get("/recipes/:ingredients", async (req, res) => {
   });
   res.send(getFilteredRecipes.data);
 });
+
+// app.get("/user/receipes/", async (req, res) => {
+//   db.select().table('made_recipes');
+//   const getAllRecipes = await axios({
+//     method: "GET",
+//     url: "https://recipe-puppy.p.rapidapi.com/",
+//     headers: {
+//       "content-type": "application/json",
+//       "x-rapidapi-host": "recipe-puppy.p.rapidapi.com",
+//       "x-rapidapi-key": API_KEY,
+//       useQueryString: true,
+//     },
+//   });
+//   res.send(getAllRecipes.data);
+// });
 
 module.exports = app;
