@@ -5,6 +5,7 @@ import Topbar from "./Topbar"
 import Searchbar from './Searchbar';
 import PopularFood from './PopularFood';
 import ResultList from './ResultList';
+import RightPanel from './RightPanel';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         
       <ResultList />
         
+      <RightPanel />
       
     </div>
   );

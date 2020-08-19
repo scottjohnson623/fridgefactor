@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function LeftPanel() {
+export default function RecipeCard() {
     return (
         <div>
             
