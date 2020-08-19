@@ -1,6 +1,6 @@
 import { createStore } from "redux";
 
-const intialState = {
+const initialState = {
   recipes: [],
   starred: [],
   made: [],
