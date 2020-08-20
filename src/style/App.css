@@ -31,16 +31,19 @@ body::-webkit-scrollbar-thumb {
   height: 12vh;
   background-color: #41444b;
   box-shadow:  0px 0px 6px 6px rgba(0, 0, 0, 0.3);
-  
+  display: flex;
+  align-content: space-around;
+  justify-content: space-around;
 }
 
 .fearfactor {
-  padding: 3vh 0 3vh 0;
+  padding: 2vh 0 2vh 0;
   height: 9vh;
 
 }
 
 .loginicon {
+  margin: 2.5vh;
   height: 50%;
   cursor: pointer;
 }
@@ -52,29 +55,30 @@ body::-webkit-scrollbar-thumb {
   border-radius: 5px;
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
-  background: linear-gradient(  #52575d);
+  background-color: #52575d;
   box-shadow: 0px 0px 4px 4px rgba(0,0,0, 0.5);
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-content: center;
 }
 
 .search {
-  
-  border-radius: 5px;
+  margin: auto;
+  height: 60%;
   width: 70%;
 }
 
 .buttons {
-  margin: 5px;
-  float: right;
-  border-left-width: 1px;
+  margin: auto;
+  height: 60%;
+  
 }
 
 input{
+  margin: auto;
   padding:4px;
   width: 40%;
-  height: 35%;
+  font-size: medium;
   border-radius: 8px;
   background: #fff22d;
 }
@@ -150,9 +154,9 @@ input{
   position: fixed;
   right:-22rem;
   overflow-y: scroll;
-  background: linear-gradient(azure,white,azure,white, azure 95%, powderblue);
+  background-color: #f6f4e6;
   border-radius: 8px;
-  box-shadow: 0px 0px 2px 2px black, 0px 0px 10px 10px azure;
+  box-shadow: 0px 0px 2px 2px rgba(0,0,0, 0.5);
   transition: 1s;
 }
 
@@ -200,7 +204,7 @@ h3{
 }
 p {
   margin: 5px;
-  
+  text-decoration: none;
   
   color: #52575d;
 }

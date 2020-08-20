@@ -12,7 +12,9 @@ export default function RecipeCard(props) {
     }
 
     return (
-        <a href={props.recipe.href}>
+        <div>
+
+        <a href={props.recipe.href} target="_blank">
         <div className="recipecard-wrap" onclick>
             <h3>{props.recipe.title}</h3>
                 <div className="recipecontent">
@@ -20,12 +22,13 @@ export default function RecipeCard(props) {
                     <p>Ingredients: {props.recipe.ingredients}</p>
                     
                 </div>
+        </div>
+        </a>
                 <div>
                     <button class ="buttoncard" onClick={() => shareClick(props.recipe)}>Share</button>
                     <button class="buttoncard"><img className="star" src={star}/></button>
                     <button class="buttoncard">Made</button>
                 </div>
         </div>
-        </a>
     )
 }
