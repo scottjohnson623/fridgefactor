@@ -8,8 +8,12 @@ router.post("/register", authHelpers.loginRedirect, (req, res, next) => {
   return authHelpers
     .createUser(req, res)
     .then((response) => {
+      console.log(response);
       passport.authenticate("local", (err, user, info) => {
+        console.log("authenticate", response);
+        console.log(err, user, info);
         if (user) {
+          console.log(user);
           handleResponse(res, 200, "success");
         }
       })(req, res, next);
