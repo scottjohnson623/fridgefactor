@@ -10,7 +10,7 @@ export default function RecipeCard(props) {
     
     const shareClick = async () => {
         // let payload={
-        //     "body": `Here is your recipe ${props.recipe.href}`,
+        //     "body": `Here is your recipe:\n ${props.recipe.href}\n Enjoy cooking!\n\nLove\nFridge Factor`,
         //     "to": toInput.current.value,
         //     "subject": "Your Recipe from Fridge Factor",
         //     "from": fromInput.current.value
