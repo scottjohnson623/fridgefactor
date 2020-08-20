@@ -3,7 +3,8 @@ import star from "../star.png"
 
 export default function RecipeCard(props) {
     return (
-        <div className="recipecard-wrap">
+        <a href={props.recipe.href}>
+        <div className="recipecard-wrap" onclick>
             <h3>{props.recipe.title}</h3>
                 <div className="recipecontent">
                     <img className="recipeimage" src={props.recipe.thumbnail}></img>
@@ -16,5 +17,6 @@ export default function RecipeCard(props) {
                     <button class="buttoncard">Made</button>
                 </div>
         </div>
+        </a>
     )
 }
