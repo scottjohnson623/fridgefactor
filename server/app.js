@@ -50,7 +50,7 @@ app.get("/recipes", async (req, res) => {
   res.send(getAllRecipes.data);
 });
 
-app.get("/recipes/:ingredients", async (req, res) => {
+app.get("/recipes/:i/:q", async (req, res) => {
   const getFilteredRecipes = await axios({
     method: "GET",
     url: "https://recipe-puppy.p.rapidapi.com/",
@@ -125,5 +125,26 @@ app.post("user/recipe/share", async (req, res) => {
 });
 
 //adding starred and made recipes
+app.post("/made-recipes", async (req, res) => {
+  await db("made_recipes").insert({
+    user_id: req.user.id,
+    title: req.body.title,
+    href: req.body.href,
+    ingredients: req.body.ingredients,
+    thumbnail: req.body.thumbnail,
+  });
+  res.sendStatus(200);
+});
+
+app.post("/starred-recipes", async (req, res) => {
+  await db("starred_recipes").insert({
+    user_id: req.user.id,
+    title: req.body.title,
+    href: req.body.href,
+    ingredients: req.body.ingredients,
+    thumbnail: req.body.thumbnail,
+  });
+  res.sendStatus(200);
+});
 
 module.exports = app;
