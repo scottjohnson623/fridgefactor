@@ -30,20 +30,20 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
   height: 12vh;
   background-color: #41444b;
-  box-shadow:  0px 0px 6px 6px white;
-  border-width: 8px;
-  border-color: blue;
+  box-shadow:  0px 0px 6px 6px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-content: space-around;
+  justify-content: space-around;
 }
 
 .fearfactor {
-  padding: 3vh 0 3vh 0;
-  width: 100%;
-  height: 6vh;
-  object-fit: scale-down;
-  background: linear-gradient(rgba(255, 255, 255, 0.8), transparent, transparent, transparent, transparent, transparent 90%, rgba(20,20,20, 0.8))
+  padding: 2vh 0 2vh 0;
+  height: 9vh;
+
 }
 
 .loginicon {
+  margin: 2.5vh;
   height: 50%;
   cursor: pointer;
 }
@@ -55,29 +55,30 @@ body::-webkit-scrollbar-thumb {
   border-radius: 5px;
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
-  background: linear-gradient( #41444b, #52575d, #41444b);
-  box-shadow: 0px 0px 4px 4px black;
+  background-color: #52575d;
+  box-shadow: 0px 0px 4px 4px rgba(0,0,0, 0.5);
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-content: center;
 }
 
 .search {
-  
-  border-radius: 5px;
+  margin: auto;
+  height: 60%;
   width: 70%;
 }
 
 .buttons {
-  margin: 5px;
-  float: right;
-  border-left-width: 1px;
+  margin: auto;
+  height: 60%;
+  
 }
 
 input{
+  margin: auto;
   padding:4px;
   width: 40%;
-  height: 35%;
+  font-size: medium;
   border-radius: 8px;
   background: #fff22d;
 }
@@ -117,12 +118,12 @@ input{
   border: 8px solid #41444b;
   background: linear-gradient( #fddb3a, #fff22d, #fddb3a);
   object-fit: contain;
-  box-shadow: 0px 0px 1px 3px black;
+  box-shadow: 0px 0px 1px 3px rgba(0,0,0, 0.5);
   transition: 0.2s;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .recipecard:hover {
-  box-shadow: 0px 0px 6px 6px black;
+  box-shadow: 0px 0px 6px 6px rgba(0,0,0, 0.5);
   cursor: pointer;
   width: 25.1rem;
   height: 20.2%;
@@ -141,7 +142,7 @@ input{
   width: auto;
   height: 5%;
   border-radius: 8px;
-  box-shadow: 2px 2px 8px 4px black;
+  box-shadow: 2px 2px 8px 4px rgba(0,0,0, 0.5);
 }
 
 .rightpanel {
@@ -153,9 +154,9 @@ input{
   position: fixed;
   right:-22rem;
   overflow-y: scroll;
-  background: linear-gradient(azure,white,azure,white, azure 95%, powderblue);
+  background-color: #f6f4e6;
   border-radius: 8px;
-  box-shadow: 0px 0px 2px 2px black, 0px 0px 10px 10px azure;
+  box-shadow: 0px 0px 2px 2px rgba(0,0,0, 0.5);
   transition: 1s;
 }
 
@@ -203,7 +204,7 @@ h3{
 }
 p {
   margin: 5px;
-  
+  text-decoration: none;
   
   color: #52575d;
 }
