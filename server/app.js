@@ -50,7 +50,7 @@ app.get("/recipes", async (req, res) => {
   res.send(getAllRecipes.data);
 });
 
-app.get("/recipes/:ingredients", async (req, res) => {
+app.get("/recipes/:i/:q", async (req, res) => {
   const getFilteredRecipes = await axios({
     method: "GET",
     url: "https://recipe-puppy.p.rapidapi.com/",

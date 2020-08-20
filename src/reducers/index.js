@@ -2,6 +2,7 @@ import { createStore } from "redux";
 
 const initialState = {
   recipes: [],
+  searchedRecipes: [],
   starred: [],
   made: [],
   ingredients: [],
@@ -18,6 +19,8 @@ function reducer(state = initialState, action) {
   switch (action.type) {
     case "SET_RECIPES":
       return { ...state, recipes: action.payload };
+    case "SET_SEARCHED_RECIPES":
+      return { ...state, searchedRecipes: action.payload };
     case "SET_STARRED":
       return { ...state, starred: action.payload };
     case "SET_MADE":
