@@ -82,6 +82,7 @@ app.get("/user/recipes/", async (req, res) => {
   res.send(recipes);
 });
 
+//share recipes by email
 app.post("user/recipe/share", async (req, res) => {
   await axios({
     method: "POST",
@@ -122,5 +123,7 @@ app.post("user/recipe/share", async (req, res) => {
       console.log("you suck");
     });
 });
+
+//adding starred and made recipes
 
 module.exports = app;
