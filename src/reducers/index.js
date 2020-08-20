@@ -9,7 +9,9 @@ const initialState = {
   text: "",
   strict: false,
   loading: false,
-  loginToggle: false
+  loginToggle: false,
+  shareToggle: false,
+  shareData: {}
 };
 
 function reducer(state = initialState, action) {
@@ -24,6 +26,8 @@ function reducer(state = initialState, action) {
       return { ...state, food: action.payload };
     case "SET_TEXT":
       return { ...state, text: action.payload };
+    case "SET_SHARE_DATA":
+      return { ...state, shareData: action.payload };
 
     case "TOGGLE_STRICT":
       return { ...state, strict: !state.strict };
@@ -31,6 +35,8 @@ function reducer(state = initialState, action) {
       return { ...state, loading: !state.loading };
     case "TOGGLE_LOGIN":
       return { ...state, loginToggle: !state.loginToggle };
+    case "TOGGLE_SHARE":
+      return { ...state, shareToggle: !state.shareToggle };
 
     case "ADD_STARRED":
       return { ...state, starred: [...state.starred, action.payload] };

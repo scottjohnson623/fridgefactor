@@ -2,12 +2,15 @@ import React, { useEffect } from 'react'
 import axios from 'axios';
 import { useSelector, useDispatch } from "react-redux";
 import RecipeCard from "./RecipeCard"
+import Share from "./Share"
 
 export default function PopularFood() {
     const randomR = [{name: "pizza", image:"https://media-cdn.tripadvisor.com/media/photo-s/0e/54/ea/06/pizza-hut.jpg", ingredients: "pizza base, tomato sauce, cheese, toppings" },{name: "burger" , image:"https://media-cdn.tripadvisor.com/media/photo-s/17/ba/a6/31/burger.jpg", ingredients: "bun, burger, cheese, salad, secret sauce" },{name: "pasta", image:"https://www.foodiecrush.com/wp-content/uploads/2019/07/Pomodoro-Sauce-foodiecrush.com-015.jpg", ingredients: "pasta, tomato, basil" }]
     
     const dispatch = useDispatch();
     const allRecipesData = useSelector(state => state.recipes)
+    const shareToggle = useSelector(state => state.shareToggle)
+    const shareData = useSelector(state => state.shareData)
 
     const getRecipesData = async () => {
         const res = await axios.get(`/recipes`);
@@ -42,10 +45,23 @@ export default function PopularFood() {
     
     )}) 
     }
+
+    function swapShare() {
+        return (
+            <>
+                <div key="shareRecipeCard" className="recipecard">
+                    <RecipeCard recipe={shareData} />
+                </div>
+                <Share recipe={shareData} />
+            </>
+        )
+    }
     
     return (
-            <>
-           {makeRecipeCard()}
+        <>
+            {shareToggle ?
+            swapShare() :
+            makeRecipeCard()}
         </>
         )
     
