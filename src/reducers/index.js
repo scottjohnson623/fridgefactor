@@ -9,6 +9,7 @@ const initialState = {
   text: "",
   strict: false,
   loading: false,
+  loginToggle: false
 };
 
 function reducer(state = initialState, action) {
@@ -28,6 +29,8 @@ function reducer(state = initialState, action) {
       return { ...state, strict: !state.strict };
     case "TOGGLE_LOADING":
       return { ...state, loading: !state.loading };
+    case "TOGGLE_LOGIN":
+      return { ...state, loginToggle: !state.loginToggle };
 
     case "ADD_STARRED":
       return { ...state, starred: [...state.starred, action.payload] };
