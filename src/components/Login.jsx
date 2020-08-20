@@ -4,13 +4,17 @@ import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import axios from 'axios';
+import { useSelector, useDispatch } from "react-redux";
 
 export default function Login() {
+
+    const dispatch = useDispatch();
+    const loginToggle = useSelector(state => state.loginToggle)
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleClick = async (event) => {
+    const handleClick = async () => {
         let payload={
             "username": username,
             "password": password
@@ -18,6 +22,7 @@ export default function Login() {
         const response = await axios.post("/auth/login", payload)
         if(response.data.status === "success") {
             console.log("login successfull");
+            dispatch({ type: "TOGGLE_LOGIN" });
         } 
         else if (response.data.status == "User not found") {
             console.log("Username password do not match");

@@ -10,7 +10,7 @@ router.post("/register", authHelpers.loginRedirect, (req, res, next) => {
     .then((response) => {
       passport.authenticate("local", (err, user, info) => {
         if (user) {
-          handleResponse(res, 200, "success");
+          return handleResponse(res, 200, "success");
         }
       })(req, res, next);
     })
