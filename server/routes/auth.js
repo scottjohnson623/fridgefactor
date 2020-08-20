@@ -10,10 +10,19 @@ router.post("/register", authHelpers.loginRedirect, (req, res, next) => {
     .then((response) => {
       console.log(response);
       passport.authenticate("local", (err, user, info) => {
+<<<<<<< HEAD
         console.log("authenticate", response);
         console.log(err, user, info);
         if (user) {
           console.log(user);
+=======
+        console.log(response);
+        console.log(response.username);
+        if (user) {
+          console.log("this is user", user);
+          console.log("this is user.username", user.username);
+          console.log("this is respone", response);
+>>>>>>> 22457592961a50d8b1ea1ae9d8dd58a372df26d0
           handleResponse(res, 200, "success");
         }
       })(req, res, next);
@@ -26,12 +35,9 @@ router.post("/register", authHelpers.loginRedirect, (req, res, next) => {
 router.post("/login", authHelpers.loginRedirect, (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
     if (err) {
-      console.log("if statement 1");
-      console.log(err);
       return handleResponse(res, 500, "error");
     }
     if (!user) {
-      console.log("user doesnt exist");
       return handleResponse(res, 404, "User not found");
     }
     if (user) {
