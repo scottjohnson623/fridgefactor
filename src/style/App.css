@@ -13,7 +13,7 @@ body::-webkit-scrollbar-track {
  
 body::-webkit-scrollbar-thumb {
   background-color: black;
-  box-shadow: 0px 0px 12px 12px gold;
+  box-shadow: 0px 0px 12px 12px #fddb3a;
   border-radius: 8px;
 }
 
@@ -29,7 +29,7 @@ body::-webkit-scrollbar-thumb {
 .Topbar {
   width: 100%;
   height: 12vh;
-  background-color: #fddb3a;
+  background-color: #41444b;
   box-shadow:  0px 0px 6px 6px white;
   border-width: 8px;
   border-color: blue;
@@ -52,8 +52,10 @@ body::-webkit-scrollbar-thumb {
   margin: 20px auto 20px auto;
   width: 80%;
   height: 5rem;
-  border-radius: 25px;
-  background: linear-gradient(gold, #fddb3a, gold);
+  border-radius: 5px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  background: linear-gradient( #41444b, #52575d, #41444b);
   box-shadow: 0px 0px 4px 4px black;
   display: flex;
   justify-content: space-between;
@@ -61,18 +63,26 @@ body::-webkit-scrollbar-thumb {
 }
 
 .search {
-  margin: 5px;
   
-  border-radius: 25px;
-  width: 50%;
+  border-radius: 5px;
+  width: 70%;
 }
 
 .buttons {
+  margin: 5px;
   float: right;
   border-left-width: 1px;
 }
 
-button {
+input{
+  padding:4px;
+  width: 40%;
+  height: 35%;
+  border-radius: 8px;
+  background: #fff22d;
+}
+
+.buttonsearch {
   background: none;
   padding: 8px;
   /* width: 50%; */
@@ -81,55 +91,55 @@ button {
   border-width: 0px 1px 0px 1px;
   font-size: 1rem;
   font-weight: bolder;
-  color: darkslateblue;
-  cursor: pointer
-}
-input{
-  width: 80%;
-  height: 30%;
-  border-radius: 8px;
-  background: rgba(255,215,0, 0.8)
-}
-button:focus {
-  background: linear-gradient(goldenrod, gold, goldenrod);
-  outline: none;
-}
-.buttonsearch {
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
+  color: #f6f4e6;
+  cursor: pointer;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 5px;
 }
 
 .result {
   margin: auto;
   width: 80%;
-  border-radius: 50px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
   align-content: space-around;
-  color: gold;
+  color: #41444b;
 }
 
 .recipecard {
   margin: 8px;
-  padding: 8px;
-  width: 28rem;
-  background-color: #52575d;
-  border-radius: 60px;  
-  box-shadow: 0px 0px 3px 3px black;
-  
-  /* flex-wrap: wrap; */
+  padding: 1rem;
+  width: 25rem;
+  height: 20%;
+  border-radius: 3px;
+  border: 8px solid #41444b;
+  background: linear-gradient( #fddb3a, #fff22d, #fddb3a);
+  object-fit: contain;
+  box-shadow: 0px 0px 1px 3px black;
+  transition: 0.2s;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.recipecard:hover {
+  box-shadow: 0px 0px 6px 6px black;
+  cursor: pointer;
+  width: 25.1rem;
+  height: 20.2%;
+  transition: 0.2s;
 }
 
 .recipecontent {
+  margin: 4px;
   display: flex;
   flex-direction: row;
+  
 }
 
 .recipeimage {
   margin: 8px;
-  width: 8rem;
+  width: auto;
+  height: 5%;
   border-radius: 8px;
   box-shadow: 2px 2px 8px 4px black;
 }
@@ -165,7 +175,7 @@ button:focus {
  
 .rightpanel::-webkit-scrollbar-thumb {
   background-color: black;
-  box-shadow: 0px 0px 12px 12px gold;
+  box-shadow: 0px 0px 12px 12px #fddb3a;
   border-radius: 8px;
 }
 
@@ -186,8 +196,74 @@ button:focus {
   border-radius: 50%;
   box-shadow: 0px 0px 3px 3px black;
 }
-h3 {
-  text-align: center;
-  text-justify: distribute;
-  color: crimson;
+h3{
+  margin: 0;
+  text-decoration: underline;
+  color: black;
+}
+p {
+  margin: 5px;
+  
+  
+  color: #52575d;
+}
+
+button {
+  margin: 0px 8px 0px 8px;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  min-width: 2.4em;
+  vertical-align: middle;
+  text-decoration: none;
+  /* font-size: inherit; */
+  /* font-family: inherit; */
+}
+.buttoncard {
+    font-weight: 300;
+    color: #52575d;
+    text-transform: uppercase;
+    padding: 0.4em;
+    background: #f6f4e6;
+    border: 1.5px solid #52575d;
+    border-radius: 0.75em;
+    transform-style: preserve-3d;
+    transition: transform 150ms cubic-bezier(0, 0, 0.4, 1), background 150ms cubic-bezier(0, 0, 0.4, 1);
+  }
+    .buttoncard::before {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #41444b;
+      border-radius: inherit;
+      box-shadow: 0 0 0 2px #41444b, 0 0.3em 0 0 #52575d;
+      transform: translate3d(0, 0.5em, -0.5em);
+      transition: transform 150ms cubic-bezier(0, 0, 0.4, 1), box-shadow 150ms cubic-bezier(0, 0, 0.4, 1);
+    }
+    .buttoncard:hover {
+      background: #fddb3a;
+      transform: translate(0, 0.25em);
+    }
+    .buttoncard:hover::before {
+      box-shadow: 0 0 0 2px #41444b , 0 0.5em 0 0 #52575d;
+      transform: translate3d(0, 0.5em, -1em);
+    }
+    
+    .buttoncard:active {
+      background: gold;
+      transform: translate(0em, 0.75em);
+    }
+    .buttoncard:active::before {
+        box-shadow: 0 0 0 2px #41444b, 0 0 #41444b;
+        transform: translate3d(0, 0, -1em);
+      }
+.star {
+  width:12px;
 }
