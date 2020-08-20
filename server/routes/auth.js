@@ -9,8 +9,13 @@ router.post("/register", authHelpers.loginRedirect, (req, res, next) => {
     .createUser(req, res)
     .then((response) => {
       passport.authenticate("local", (err, user, info) => {
+        console.log(response);
+        console.log(response.username);
         if (user) {
-          return handleResponse(res, 200, "success");
+          console.log("this is user", user);
+          console.log("this is user.username", user.username);
+          console.log("this is respone", response);
+          handleResponse(res, 200, "success");
         }
       })(req, res, next);
     })
@@ -22,12 +27,9 @@ router.post("/register", authHelpers.loginRedirect, (req, res, next) => {
 router.post("/login", authHelpers.loginRedirect, (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
     if (err) {
-      console.log("if statement 1");
-      console.log(err);
       return handleResponse(res, 500, "error");
     }
     if (!user) {
-      console.log("user doesnt exist");
       return handleResponse(res, 404, "User not found");
     }
     if (user) {
