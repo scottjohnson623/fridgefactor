@@ -13,7 +13,7 @@ passport.use(
   new LocalStrategy(options, (username, password, done) => {
     // check to see if the username exists
     db("user")
-      .where({ username })
+      .where({ username: username })
       .first()
       .then((user) => {
         if (!user) return done(null, false);

@@ -1,7 +1,16 @@
 import React from 'react';
 import star from "../star.png"
+import { useDispatch } from "react-redux";
+
 
 export default function RecipeCard(props) {
+    const dispatch = useDispatch();
+
+    const shareClick = (data) => {
+        dispatch({ type: "SET_SHARE_DATA", payload: data });
+        dispatch({ type: "TOGGLE_SHARE"});
+    }
+
     return (
         <a href={props.recipe.href}>
         <div className="recipecard-wrap" onclick>
@@ -12,7 +21,7 @@ export default function RecipeCard(props) {
                     
                 </div>
                 <div>
-                    <button class="buttoncard">Share</button>
+                    <button class ="buttoncard" onClick={() => shareClick(props.recipe)}>Share</button>
                     <button class="buttoncard"><img className="star" src={star}/></button>
                     <button class="buttoncard">Made</button>
                 </div>

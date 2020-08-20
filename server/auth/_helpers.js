@@ -7,16 +7,15 @@ function comparePass(userPassword, databasePassword) {
 
 async function createUser(req) {
   const salt = await bcrypt.genSalt();
-  const hash = await bcrypt.hash(req.body.password, salt, async function (
-    err,
-    hash
-  ) {
-    await db("user").insert({
+  const hash = await bcrypt.hash(req.body.password, salt);
+  try {
+    return db("user").returning("*").insert({
       username: req.body.username,
       password: hash,
     });
-  });
-  return req.body;
+  } catch (err) {
+    throw err;
+  }
 }
 
 function loginRequired(req, res, next) {

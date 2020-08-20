@@ -22,12 +22,9 @@ router.post("/register", authHelpers.loginRedirect, (req, res, next) => {
 router.post("/login", authHelpers.loginRedirect, (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
     if (err) {
-      console.log("if statement 1");
-      console.log(err);
       return handleResponse(res, 500, "error");
     }
     if (!user) {
-      console.log("user doesnt exist");
       return handleResponse(res, 404, "User not found");
     }
     if (user) {
