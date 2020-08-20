@@ -17,7 +17,7 @@ export default function Register() {
         "password": password
         }
         const response = await axios.post("/auth/register", payload)
-        console.log(response.json({}));
+        console.log(response);
         if(response.data.code == 200){
         console.log("registration successfull");
         } else {
