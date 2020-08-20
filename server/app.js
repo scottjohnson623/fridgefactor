@@ -82,33 +82,48 @@ app.get("/user/recipes/", async (req, res) => {
   res.send(recipes);
 });
 
-const qs = require("qs");
-
-app.post("/share", async (req, res) => {
-  console.log(req.body);
-  await axios(
-    qs.stringify({
-      method: "POST",
-      url: "https://mailrecipe.p.rapidapi.com/gaemail/send/",
-      headers: {
-        "content-type": "application/x-www-form-urlencoded",
-        "x-rapidapi-host": "mailrecipe.p.rapidapi.com",
-        "x-rapidapi-key": process.env.API_KEY,
-        useQueryString: true,
+//share recipes by email
+app.post("user/recipe/share", async (req, res) => {
+  await axios({
+    method: "POST",
+    url: "https://rapidprod-sendgrid-v1.p.rapidapi.com/mail/send",
+    headers: {
+      "content-type": "application/json",
+      "x-rapidapi-host": "rapidprod-sendgrid-v1.p.rapidapi.com",
+      "x-rapidapi-key": process.env.API_KEY,
+      accept: "application/json",
+      useQueryString: true,
+    },
+    data: {
+      personalizations: [
+        {
+          to: [
+            {
+              email: req.body.personalizations[0].to[0].email,
+            },
+          ],
+          subject: req.body.personalizations[0].subject,
+        },
+      ],
+      from: {
+        email: req.body.from.email,
       },
-      data: {
-        body: req.body.body,
-        to: req.body.to,
-        subject: req.body.subject,
-      },
-    })
-  )
+      content: [
+        {
+          type: req.body.content[0].type,
+          value: req.body.content[0].value,
+        },
+      ],
+    },
+  })
     .then(() => {
       res.sendStatus(200);
     })
-    .catch((err) => {
-      console.log("not working biatch", err);
+    .catch((error) => {
+      console.log("you suck");
     });
 });
+
+//adding starred and made recipes
 
 module.exports = app;
