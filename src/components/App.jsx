@@ -11,13 +11,16 @@ import { useSelector } from "react-redux";
 export default function App() {
 
   const mainPage = useSelector(state => state.mainPage)
+  const loginToggle = useSelector(state => state.loginToggle)
+
   return (
     <div className="App">
       <Topbar />
       {mainPage ? <>
       <Searchbar />
       <ResultList />
-      <RightPanel />
+      {loginToggle ? <RightPanel /> : null}
+      
       </>
       :
       <LoginScreen />
