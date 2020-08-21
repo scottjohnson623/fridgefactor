@@ -35,9 +35,9 @@
     "eject": "react-scripts eject",
     "migrate": "knex migrate:latest",
     "nodemon": "nodemon ./server/index",
-    "seed1": "knex seed:run --specific=seed_user.js",
-    "seed2": "knex seed:run --specific=seed_made.js",
-    "seed3": "knex seed:run --specific=seed_starred.js"
+    "seed3": "node seeds/seed_made.js",
+    "seed2": "node seeds/seed_starred.js",
+    "seed1": "node seed_user.js"
   },
   "eslintConfig": {
     "extends": "react-app"
