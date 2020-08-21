@@ -2,7 +2,7 @@ import React from "react";
 import star from "../star.png";
 import { useDispatch } from "react-redux";
 import placeholder from "../placeholder.png";
-import axios from 'axios';
+import axios from "axios";
 
 export default function RecipeCard(props) {
   const dispatch = useDispatch();
@@ -17,14 +17,14 @@ export default function RecipeCard(props) {
   }
 
   const starClick = async (data) => {
-    await axios.post("`/api/starred`", data)
+    await axios.post("/starred-recipes", data);
     dispatch({ type: "ADD_STARRED", payload: data });
-  }
+  };
 
   const madeClick = async (data) => {
-    await axios.post("`/api/made`", data)
+    await axios.post("`/api/made`", data);
     dispatch({ type: "ADD_MADE", payload: data });
-  }
+  };
 
   return (
     <div>
@@ -35,7 +35,6 @@ export default function RecipeCard(props) {
             <img className="recipeimage" src={imgsrc}></img>
             <p>Ingredients: {props.recipe.ingredients}</p>
           </div>
-
         </div>
       </a>
       <div>
@@ -45,7 +44,9 @@ export default function RecipeCard(props) {
         <button className="buttoncard" onClick={() => starClick(props.recipe)}>
           <img className="star" src={star} />
         </button>
-        <button className="buttoncard" onClick={() => madeClick(props.recipe)}>Made</button>
+        <button className="buttoncard" onClick={() => madeClick(props.recipe)}>
+          Made
+        </button>
       </div>
     </div>
   );

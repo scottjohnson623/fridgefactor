@@ -1,5 +1,4 @@
-import db from "../db";
-
+const db = require("../db");
 function insert() {
   return db("made_recipes").insert([
     {

@@ -1,3 +1,5 @@
+const db = require("../db");
+
 function insert() {
   return db("starred_recipes").insert([
     {
