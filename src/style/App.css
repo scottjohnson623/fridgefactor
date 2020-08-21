@@ -1,5 +1,6 @@
 body {
   margin: 0rem;
+  background-color: #f6f4e6;
 }
 body::-webkit-scrollbar {
   background-color: transparent;
@@ -19,7 +20,7 @@ body::-webkit-scrollbar-thumb {
 
 .App {
   text-align: center;
-  background-color: #f6f4e6;
+  
   display: flex;
   align-content: center;
   flex-direction: column;
@@ -42,9 +43,18 @@ body::-webkit-scrollbar-thumb {
 
 }
 
+.login {
+  width: 5.7rem;
+  display: flex;
+  flex-direction: column;
+  color: #f6f4e6;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: small;
+}
+
 .loginicon {
-  margin: 2.5vh;
-  height: 50%;
+  margin: 2.4vh 2.5vh 0 2.5vh;
+  height: 55%;
   cursor: pointer;
 }
 
@@ -75,7 +85,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 input{
-  margin: auto;
+  /* margin: auto; */
   padding:4px;
   width: 40%;
   font-size: medium;
@@ -223,7 +233,7 @@ button {
   /* font-family: inherit; */
 }
 .buttoncard {
-    font-weight: 300;
+    font-weight: 400;
     color: #52575d;
     text-transform: uppercase;
     padding: 0.4em;
@@ -267,4 +277,16 @@ button {
       }
 .star {
   width:12px;
+}
+
+.share {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.emailinput {
+  width: 80%
 }

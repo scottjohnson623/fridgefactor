@@ -25,9 +25,9 @@ export default function RecipeCard(props) {
         </div>
         </a>
                 <div>
-                    <button class ="buttoncard" onClick={() => shareClick(props.recipe)}>Share</button>
-                    <button class="buttoncard"><img className="star" src={star}/></button>
-                    <button class="buttoncard">Made</button>
+                    <button className ="buttoncard" onClick={() => shareClick(props.recipe)}>Share</button>
+                    <button className ="buttoncard"><img className="star" src={star}/></button>
+                    <button className ="buttoncard">Made</button>
                 </div>
         </div>
     )
