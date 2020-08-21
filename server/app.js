@@ -84,7 +84,7 @@ app.get("/user/recipes/", async (req, res) => {
 
 //share recipes by email
 app.post("user/recipe/share", async (req, res) => {
-  console.log(req.body)
+  console.log(req.body);
   await axios({
     method: "POST",
     url: "https://rapidprod-sendgrid-v1.p.rapidapi.com/mail/send",
