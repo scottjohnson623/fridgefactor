@@ -14,17 +14,21 @@ export default function RightPanel() {
       }
       if (i % 2 === 0) {
         return (
-          <div className="eggboxR">
-            <img className="eggimage" src={imgsrc}></img>
-            <label className="recipename">{recipe.title}</label>
-          </div>
+          <a href={recipe.href} target="_blank">
+            <div className="eggboxR">
+              <img className="eggimage" src={imgsrc}></img>
+              <label className="recipename">{recipe.title}</label>
+            </div>
+          </a>
         );
       }
       return (
-        <div className="eggboxL">
-          <img className="eggimage" src={imgsrc}></img>
-          <label className="recipename">{recipe.title}</label>
-        </div>
+        <a href={recipe.href} target="_blank">
+          <div className="eggboxL">
+            <img className="eggimage" src={imgsrc}></img>
+            <label className="recipename">{recipe.title}</label>
+          </div>
+        </a>
       );
     });
   }
@@ -36,7 +40,6 @@ export default function RightPanel() {
         <h1>Starred Recipes</h1>
         {makeStars()}
       </div>
-      <div className="made"></div>
     </div>
   );
 }
