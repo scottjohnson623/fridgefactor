@@ -9,7 +9,6 @@ import { useSelector, useDispatch } from "react-redux";
 export default function Login() {
 
     const dispatch = useDispatch();
-    const loginToggle = useSelector(state => state.loginToggle)
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -23,6 +22,7 @@ export default function Login() {
         if(response.data.status === "success") {
             console.log("login successfull");
             dispatch({ type: "TOGGLE_LOGIN" });
+            dispatch({ type: "TOGGLE_MAIN_PAGE" })
         } 
         else if (response.data.status == "User not found") {
             console.log("Username password do not match");

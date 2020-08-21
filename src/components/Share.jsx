@@ -9,14 +9,14 @@ export default function RecipeCard(props) {
     const fromInput = useRef();
     
     const shareClick = async () => {
-        // let payload={
-        //     "body": `Here is your recipe:\n ${props.recipe.href}\n Enjoy cooking!\n\nLove\nFridge Factor`,
-        //     "to": toInput.current.value,
-        //     "subject": "Your Recipe from Fridge Factor",
-        //     "from": fromInput.current.value
-        // };
-        // const response = await axios.post("/share", payload);
-        // console.log(response);
+        let payload={
+            "body": `Here is your recipe:\n ${props.recipe.href}\n Enjoy cooking!\n\nLove\nFridge Factor`,
+            "to": toInput.current.value,
+            "subject": "Your Recipe from Fridge Factor",
+            "from": fromInput.current.value
+        };
+        const response = await axios.post("user/recipe/share", payload);
+        console.log(response);
         dispatch({ type: "TOGGLE_SHARE"});
     }
 
@@ -27,6 +27,7 @@ export default function RecipeCard(props) {
             <label> TO : </label>
             <input className="emailinput" ref={toInput} type="text" placeholder="Enter Email - Who would you like to send to?"></input>
             <button className="buttoncard" onClick={() => shareClick()}>Email Recipe</button>
+            <button className="buttoncard" onClick={() => dispatch({ type: "TOGGLE_SHARE"})}>Back</button>
         </div>
     )
 }

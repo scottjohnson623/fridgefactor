@@ -4,10 +4,11 @@ import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import axios from 'axios';
-// import Login from './Login';
+import { useDispatch } from "react-redux";
 
 export default function Register() {
-    
+
+    const dispatch = useDispatch();  
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -18,8 +19,9 @@ export default function Register() {
         }
         const response = await axios.post("/auth/register", payload)
         console.log(response);
-        if(response.data.code == 200){
+        if(response.status == 200){
         console.log("registration successfull");
+        dispatch({ type: "TOGGLE_LOGIN" });
         } else {
         console.log("registration failed");
         }
@@ -38,7 +40,6 @@ export default function Register() {
              label="Username"
              onChange = {(event) => {
                  setUsername(event.target.value); 
-                 console.log(event.target.value)
                 }}
              />
            <br/>
@@ -48,7 +49,7 @@ export default function Register() {
              type="password"
              onChange = {(event) => setPassword(event.target.value)}
              />
-           <br/>
+           <br/><br/>
            <Button label="Register" variant="outlined" color="secondary" onClick={() => handleClick()}>Register</Button>
           </div>
          </MuiThemeProvider>
