@@ -2,6 +2,7 @@ import React from "react";
 import star from "../star.png";
 import { useDispatch } from "react-redux";
 import placeholder from "../placeholder.png";
+import axios from 'axios';
 
 export default function RecipeCard(props) {
   const dispatch = useDispatch();
@@ -14,10 +15,21 @@ export default function RecipeCard(props) {
   if (imgsrc === "") {
     imgsrc = placeholder;
   }
+
+  const starClick = async (data) => {
+    await axios.post("`/api/starred`", data)
+    dispatch({ type: "ADD_STARRED", payload: data });
+  }
+
+  const madeClick = async (data) => {
+    await axios.post("`/api/made`", data)
+    dispatch({ type: "ADD_MADE", payload: data });
+  }
+
   return (
     <div>
       <a href={props.recipe.href} target="_blank">
-        <div className="recipecard-wrap" onclick>
+        <div className="recipecard-wrap">
           <h3 className="recipetitle">{props.recipe.title}</h3>
           <div className="recipecontent">
             <img className="recipeimage" src={imgsrc}></img>
@@ -29,10 +41,10 @@ export default function RecipeCard(props) {
         <button class="buttoncard" onClick={() => shareClick(props.recipe)}>
           Share
         </button>
-        <button class="buttoncard">
+        <button className="buttoncard" onClick={() => starClick(props.recipe)}>
           <img className="star" src={star} />
         </button>
-        <button class="buttoncard">Made</button>
+        <button className="buttoncard" onClick={() => madeClick(props.recipe)}>Made</button>
       </div>
     </div>
   );

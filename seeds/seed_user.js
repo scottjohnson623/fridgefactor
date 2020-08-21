@@ -1,6 +1,7 @@
-exports.seed = function (knex) {
-  // Deletes ALL existing entries
-  return knex("user")
+import db from "../db";
+
+function insert() {
+  return db("user")
     .del()
     .then(function () {
       return knex("user").insert([
@@ -10,4 +11,5 @@ exports.seed = function (knex) {
         { username: "Ayumi", password: "test3" },
       ]);
     });
-};
+}
+insert();
