@@ -18,13 +18,19 @@ export default function RecipeCard(props) {
     <div>
       <a href={props.recipe.href} target="_blank">
         <div className="recipecard-wrap" onclick>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 56d53bf546bbe2cfce5e7ce53cbda3aec206fd9c
           <h3 className="recipetitle">{props.recipe.title}</h3>
           <div className="recipecontent">
             <img className="recipeimage" src={imgsrc}></img>
             <p>Ingredients: {props.recipe.ingredients}</p>
           </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 56d53bf546bbe2cfce5e7ce53cbda3aec206fd9c
         </div>
       </a>
       <div>

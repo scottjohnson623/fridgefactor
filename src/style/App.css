@@ -81,7 +81,10 @@ body::-webkit-scrollbar-thumb {
   height: 60%;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 56d53bf546bbe2cfce5e7ce53cbda3aec206fd9c
 input{
   /* margin: auto; */
   padding:4px;
@@ -236,7 +239,10 @@ button {
   /* font-family: inherit; */
 }
 .buttoncard {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 56d53bf546bbe2cfce5e7ce53cbda3aec206fd9c
     font-weight: 400;
     color: #52575d;
     text-transform: uppercase;
@@ -279,7 +285,10 @@ button {
         box-shadow: 0 0 0 2px #41444b, 0 0 #41444b;
         transform: translate3d(0, 0, -1em);
       }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 56d53bf546bbe2cfce5e7ce53cbda3aec206fd9c
 .star {
   width: 12px;
 }
