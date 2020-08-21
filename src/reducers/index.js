@@ -12,6 +12,7 @@ const initialState = {
   loading: false,
   loginToggle: false,
   shareToggle: false,
+  toggleUserReg: true,
   shareData: {}
 };
 
@@ -42,6 +43,8 @@ function reducer(state = initialState, action) {
       return { ...state, loginToggle: !state.loginToggle };
     case "TOGGLE_SHARE":
       return { ...state, shareToggle: !state.shareToggle };
+    case "TOGGLE_USER_REG":
+      return { ...state, toggleUserReg: !state.toggleUserReg };
 
     case "ADD_STARRED":
       return { ...state, starred: [...state.starred, action.payload] };
