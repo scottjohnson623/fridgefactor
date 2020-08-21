@@ -29,25 +29,33 @@ Fridge Factor is an app made for you!
 
 When you first visit the homepage you will see a list of top recipes pulled from our extensive database. Search by receipe, search by food type or search by both to filter the list!
 
-{ insert picture of our top page }
-
 <div align="center">
-  <img src="insert picture of our top page" width="860">
+  <img src="./src/non-user-toppage.png" width="860">
 </div>
 
 But you should really register (pretty please!), to access the <b>full</b> functionality of our app.
 
 **Registering is easy!**
 
-Just click the top register button, choose your username and password, submit and you're good to go!
-
-What cool functions do you have access to now? <br>
-Weeeell for starters, the top page should look like this:
-
-{ insert picture of signed in top page }
+Just click the login/register button at the top left of the screen, choose your username and password, submit and you're good to go!
 
 <div align="center">
-  <img src="insert picture of signed in top page" width="860">
+  <img src="./src/login.png" width="750">
+</div>
+<br>
+What cool functions do you have access to now? <br>
+Weeeell for starters, the top page should look like this:
+<br>
+
+<br>
+<div align="center">
+  <img src="./src/user-toppage.png" width="800">
+</div>
+
+**It looks the same? Look closer!** Now you have a custom side bar on the right that will slide out to show all your starred recipes! Just hover over it and watch it slide out!
+
+<div align="center">
+  <img src="./src/user-toppage-barshown.png" width="800">
 </div>
 
 Now you can...
@@ -55,6 +63,10 @@ Now you can...
 - Save your made recipes
 - Star recepies you'd like to save for later (these will show up on the right side bar)
 - share your recipes by email
+
+<div align="center">
+  <img src="./src/share-recipe.png" width="750">
+</div>
 
 Future Planned Releases:
 
@@ -64,6 +76,8 @@ Future Planned Releases:
 - Additional filtering of search results
 - Displaying nutritional information
 - Improving user experience/responsiveness
+
+---
 
 ## Getting Started: How to make your own **"Fridge Factor"**
 
