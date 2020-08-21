@@ -1,27 +1,44 @@
-import React from 'react'
+import React from 'react';
+import { useSelector } from 'react-redux';
+import placeholder from "../placeholder.png";
 
 export default function RightPanel() {
-    const randomR = [{name: "Pizza", image:"https://media-cdn.tripadvisor.com/media/photo-s/0e/54/ea/06/pizza-hut.jpg", ingredients: "pizza base, tomato sauce, cheese, toppings" },{name: "Burger" , image:"https://media-cdn.tripadvisor.com/media/photo-s/17/ba/a6/31/burger.jpg", ingredients: "bun, burger, cheese, salad, secret sauce" },{name: "Pasta", image:"https://www.foodiecrush.com/wp-content/uploads/2019/07/Pomodoro-Sauce-foodiecrush.com-015.jpg", ingredients: "pasta, tomato, basil" },{name: "Pizza", image:"https://media-cdn.tripadvisor.com/media/photo-s/0e/54/ea/06/pizza-hut.jpg", ingredients: "pizza base, tomato sauce, cheese, toppings" }];
+    const starredR = useSelector(state => {
+        return state.starred})
 
-    return (
-        <div className="rightpanel">
+        return (
+            <div className="rightpanel">
+            <div className="starred">
+
             <h1>Starred Recipes</h1>
-        {randomR.map((recipe, i) => {
+        {starredR.map((recipe, i) => {
+            let imgsrc = recipe.thumbnail;
+         if (imgsrc === "") {
+             imgsrc = placeholder;
+         }
             if (i % 2 === 0) {
                 return(
+                    <a href={recipe.href} target="_blank">
                     <div className="eggboxR">
-                    <img className="eggimage" src={recipe.image}></img>
-                    <h3>{recipe.name}</h3>
-                </div>
+                        <img className="eggimage" src={imgsrc}></img>
+                        <label className="recipename">{recipe.title}</label>
+                    </div>
+                    </a>
                 )
             }
             return(
+                <a href={recipe.href} target="_blank">
                 <div className="eggboxL">
-                    <img className="eggimage" src={recipe.image}></img>
-                    <h3>{recipe.name}</h3>
+                    <img className="eggimage" src={imgsrc}></img>
+                    <label className="recipename">{recipe.title}</label>
                 </div>
-            )
-        })}
+                </a>
+                )
+            })}
+            </div>
+            <div className="made">
+
+            </div>
         </div>
     )
 }

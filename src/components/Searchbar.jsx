@@ -10,7 +10,7 @@ export default function Searchbar() {
 
     const searchClick = async () => {
         console.log(ingredientSearch.current.value);
-        const response = await axios.get(`/recipes/${ingredientSearch.current.value}/${ingredientSearch.current.value}`)
+        const response = await axios.get(`/recipes/${ingredientSearch.current.value}/${foodSearch.current.value}`)
         if (response.status === 200) {
             dispatch({ type: "SET_RECIPES", payload: response.data.results });
         }
@@ -20,7 +20,7 @@ export default function Searchbar() {
         <div className="searchbar">
             <div className="search">
                 <input ref={ingredientSearch} type="text" placeholder="What do you have?"></input>
-                <button className="buttoncard"> + </button>
+                
                 <input ref={foodSearch} type="text" placeholder="What do you want to make ?"></input>
                 
             </div>
