@@ -10,8 +10,8 @@ export default function LoginScreen() {
 
     const dispatch = useDispatch();
     const loginToggle = useSelector(state => state.loginToggle)
+    const toggleUserReg = useSelector(state => state.toggleUserReg)
 
-    const [toggleUserReg, setToggleUserReg] = useState(true);
     const [loginMessage, setLoginMessage] = useState("Not registered yet? Register Now!");
     const [buttonLabel, setButtonLabel] = useState("Register");
 
@@ -19,12 +19,12 @@ export default function LoginScreen() {
         if(toggleUserReg){
             setLoginMessage("Already registered? Go to Login")
             setButtonLabel("Login")
-            setToggleUserReg(!toggleUserReg)
+            dispatch({ type: "TOGGLE_USER_REG" });
         }
         else{
             setLoginMessage("Not registered yet? Register Now!")
             setButtonLabel("Register")
-            setToggleUserReg(!toggleUserReg)
+            dispatch({ type: "TOGGLE_USER_REG" });
         }
       }
     

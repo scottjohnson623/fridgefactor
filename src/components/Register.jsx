@@ -21,7 +21,7 @@ export default function Register() {
         console.log(response);
         if(response.status == 200){
         console.log("registration successfull");
-        dispatch({ type: "TOGGLE_LOGIN" });
+        dispatch({ type: "TOGGLE_USER_REG" });
         } else {
         console.log("registration failed");
         }
