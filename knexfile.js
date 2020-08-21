@@ -3,10 +3,10 @@ require("dotenv").config();
 module.exports = {
   development: {
     client: "pg",
-    connection: process.env.DB_URL || {
-      database: process.env.DB_NAME,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
+    connection: process.env.DATABASE_URL || {
+      database: process.env.DATABASE_NAME,
+      user: process.env.DATABASE_USER,
+      password: process.env.DATABASE_PASSWORD,
     },
     migrations: {
       directory: "./migrations",
@@ -15,10 +15,10 @@ module.exports = {
   },
   testing: {
     client: "pg",
-    connection: process.env.DB_URL || {
-      database: process.env.DB_NAME,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
+    connection: process.env.DATABASE_URL || {
+      database: process.env.DATABASE_NAME,
+      user: process.env.DATABASE_USER,
+      password: process.env.DATABASE_PASSWORD,
     },
     migrations: {
       directory: "./migrations",
@@ -27,10 +27,10 @@ module.exports = {
   },
   production: {
     client: "pg",
-    connection: process.env.DB_URL || {
-      database: process.env.DB_NAME,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
+    connection: process.env.DATABASE_URL || {
+      database: process.env.DATABASE_NAME,
+      user: process.env.DATABASE_USER,
+      password: process.env.DATABASE_PASSWORD,
     },
     migrations: {
       directory: "./migrations",
