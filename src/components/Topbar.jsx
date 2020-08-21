@@ -6,9 +6,14 @@ import starIcon from "../StarIcon.png";
 export default function Topbar() {
     return (
         <div className="Topbar">
-            <img className="loginicon" src={loginIcon} />
+            <div className="login">
+                <img className="loginicon" src={loginIcon} />
+                <label><b> Login/Register </b></label>
+            </div>
             <img className="fearfactor" src={fridgefactor} />
+            
             <img className="loginicon" src={starIcon} />
+            
         </div>
     )
 }

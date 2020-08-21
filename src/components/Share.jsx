@@ -21,10 +21,12 @@ export default function RecipeCard(props) {
     }
 
     return (
-        <div>
-            <input ref={toInput} type="text" placeholder="Enter Email - Who would you like to send to?"></input>
-            <input ref={fromInput} type="text" placeholder="Enter YOUR email address"></input>
-            <button onClick={() => shareClick()}>Email Recipe</button>
+        <div className="share">
+            <label> FROM : </label>
+            <input className="emailinput" ref={fromInput} type="text" placeholder="Enter YOUR email address"></input>
+            <label> TO : </label>
+            <input className="emailinput" ref={toInput} type="text" placeholder="Enter Email - Who would you like to send to?"></input>
+            <button className="buttoncard" onClick={() => shareClick()}>Email Recipe</button>
         </div>
     )
 }
