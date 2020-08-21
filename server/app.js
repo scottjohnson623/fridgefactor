@@ -51,6 +51,7 @@ app.get("/recipes", async (req, res) => {
 });
 
 app.get("/recipes/:i/:q", async (req, res) => {
+
   const getFilteredRecipes = await axios({
     method: "GET",
     url: "https://recipe-puppy.p.rapidapi.com/",
@@ -64,6 +65,25 @@ app.get("/recipes/:i/:q", async (req, res) => {
       p: "1",
       i: req.params.i,
       q: req.params.q,
+    },
+  });
+  res.send(getFilteredRecipes.data);
+});
+
+app.get("/recipes/:i", async (req, res) => {
+  
+  const getFilteredRecipes = await axios({
+    method: "GET",
+    url: "https://recipe-puppy.p.rapidapi.com/",
+    headers: {
+      "content-type": "application/octet-stream",
+      "x-rapidapi-host": "recipe-puppy.p.rapidapi.com",
+      "x-rapidapi-key": process.env.API_KEY,
+      useQueryString: true,
+    },
+    params: {
+      p: "1",
+      i: req.params.i,
     },
   });
   res.send(getFilteredRecipes.data);
@@ -84,7 +104,7 @@ app.get("/user/recipes/", async (req, res) => {
 
 //share recipes by email
 app.post("user/recipe/share", async (req, res) => {
-  console.log(req.body)
+  console.log(req.body);
   await axios({
     method: "POST",
     url: "https://rapidprod-sendgrid-v1.p.rapidapi.com/mail/send",
