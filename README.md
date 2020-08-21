@@ -1,17 +1,17 @@
 # Welcome to Fridge Factor <br> Saving the world one fridge at at time
 
 <div align="center">
-  <img src="./src/FridgeFactor.png" width="200">
+  <img src="./src/FridgeFactor.png" width="">
 </div>
 
-Team -
+## Our **amazing** Team -
 
 - Tech Lead: Scott (https://github.com/scottjohnson623)
 - Back-end Expert: Ayumi (https://github.com/Ayumi426)
 - Jack-of-All-Trades: Jimmy (https://github.com/jimmytwilson)
 - Front-end Craftsman: Vincent (https://github.com/TwenLeMammouth)
 
-## Our awesome features
+## Our **awesome** features
 
 Access to our Sevice: https://www.heroku.com/fridgefactor
 
@@ -65,7 +65,7 @@ Future Planned Releases:
 - Displaying nutritional information
 - Improving user experience/responsiveness
 
-## Getting Started: How to **"Fridge Factor"** and Save the Planet
+## Getting Started: How to make your own **"Fridge Factor"**
 
 ### First Steps
 
