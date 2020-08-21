@@ -10,9 +10,16 @@ export default function Searchbar() {
 
     const searchClick = async () => {
         console.log(ingredientSearch.current.value);
-        const response = await axios.get(`/recipes/${ingredientSearch.current.value}/${foodSearch.current.value}`)
-        if (response.status === 200) {
-            dispatch({ type: "SET_RECIPES", payload: response.data.results });
+        if (foodSearch.current.value) {
+            const response = await axios.get(`/recipes/${ingredientSearch.current.value}/${foodSearch.current.value}`)
+            if (response.status === 200) {
+                dispatch({ type: "SET_RECIPES", payload: response.data.results });
+            }
+        } else {
+            const response = await axios.get(`/recipes/${ingredientSearch.current.value}`)
+            if (response.status === 200) {
+                dispatch({ type: "SET_RECIPES", payload: response.data.results });
+            }
         }
     }
 
