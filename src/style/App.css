@@ -39,6 +39,7 @@ body::-webkit-scrollbar-thumb {
 .fearfactor {
   padding: 2vh 0 2vh 0;
   height: 9vh;
+  cursor: pointer;
 }
 
 .login {

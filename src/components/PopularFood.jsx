@@ -50,12 +50,9 @@ export default function PopularFood() {
     getRecipesData();
     getStarredData();
     getMadeData();
-
-    console.log(allRecipesData);
   }, []);
 
   function makeRecipeCard() {
-    console.log(allRecipesData);
     return allRecipesData.map((recipe, i) => {
       if (i < 9) {
         return (
