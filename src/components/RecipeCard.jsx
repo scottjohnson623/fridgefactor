@@ -35,6 +35,7 @@ export default function RecipeCard(props) {
             <img className="recipeimage" src={imgsrc}></img>
             <p>Ingredients: {props.recipe.ingredients}</p>
           </div>
+
         </div>
       </a>
       <div>

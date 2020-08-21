@@ -82,6 +82,10 @@ body::-webkit-scrollbar-thumb {
   height: 60%;
 }
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 56d53bf546bbe2cfce5e7ce53cbda3aec206fd9c
 input{
   /* margin: auto; */
   padding:4px;
@@ -189,16 +193,24 @@ input{
 }
 
 .eggboxL {
+  margin: 0 3rem 0 3rem;
   display: flex;
   flex-direction: row;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .eggboxR {
+  margin: 0 3rem 0 3rem;
   display: flex;
   flex-direction: row-reverse;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.recipename {
+  height: 25%;
+  margin: auto;
 }
 .eggimage {
-  width: 12rem;
-  height: 12rem;
+  width: 6rem;
+  height: 6rem;
   object-fit: cover;
   border-radius: 50%;
   box-shadow: 0px 0px 3px 3px black;
@@ -211,7 +223,6 @@ h3 {
 p {
   margin: 5px;
   text-decoration: none;
-
   color: #52575d;
 }
 
@@ -229,6 +240,10 @@ button {
   /* font-family: inherit; */
 }
 .buttoncard {
+<<<<<<< HEAD
+
+=======
+>>>>>>> 56d53bf546bbe2cfce5e7ce53cbda3aec206fd9c
     font-weight: 400;
     color: #52575d;
     text-transform: uppercase;
@@ -271,6 +286,10 @@ button {
         box-shadow: 0 0 0 2px #41444b, 0 0 #41444b;
         transform: translate3d(0, 0, -1em);
       }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 56d53bf546bbe2cfce5e7ce53cbda3aec206fd9c
 .star {
   width: 12px;
 }
