@@ -35,11 +35,10 @@ export default function RecipeCard(props) {
             <img className="recipeimage" src={imgsrc}></img>
             <p>Ingredients: {props.recipe.ingredients}</p>
           </div>
-
         </div>
       </a>
-      <div>
-        <button className="buttoncard" onClick={() => shareClick(props.recipe)}>
+      <div className="cardbutton">
+        <button class="buttoncard" onClick={() => shareClick(props.recipe)}>
           Share
         </button>
         <button className="buttoncard" onClick={() => starClick(props.recipe)}>
