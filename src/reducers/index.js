@@ -8,7 +8,7 @@ const initialState = {
   ingredients: [],
   food: "",
   text: "",
-  strict: false,
+  mainPage: true,
   loading: false,
   loginToggle: false,
   shareToggle: false,
@@ -32,8 +32,10 @@ function reducer(state = initialState, action) {
     case "SET_SHARE_DATA":
       return { ...state, shareData: action.payload };
 
-    case "TOGGLE_STRICT":
-      return { ...state, strict: !state.strict };
+    case "TOGGLE_MAIN_PAGE":
+      return { ...state, mainPage: true };
+    case "TOGGLE_LOGIN_PAGE":
+      return { ...state, mainPage: false };
     case "TOGGLE_LOADING":
       return { ...state, loading: !state.loading };
     case "TOGGLE_LOGIN":
