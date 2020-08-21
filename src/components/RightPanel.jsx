@@ -18,17 +18,21 @@ export default function RightPanel() {
          }
             if (i % 2 === 0) {
                 return(
+                    <a href={recipe.href} target="_blank">
                     <div className="eggboxR">
-                    <img className="eggimage" src={imgsrc}></img>
-                    <label className="recipename">{recipe.title}</label>
-                </div>
+                        <img className="eggimage" src={imgsrc}></img>
+                        <label className="recipename">{recipe.title}</label>
+                    </div>
+                    </a>
                 )
             }
             return(
+                <a href={recipe.href} target="_blank">
                 <div className="eggboxL">
                     <img className="eggimage" src={imgsrc}></img>
                     <label className="recipename">{recipe.title}</label>
                 </div>
+                </a>
                 )
             })}
             </div>

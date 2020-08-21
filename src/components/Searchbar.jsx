@@ -20,7 +20,7 @@ export default function Searchbar() {
         <div className="searchbar">
             <div className="search">
                 <input ref={ingredientSearch} type="text" placeholder="What do you have?"></input>
-                <button className="buttoncard"> + </button>
+                
                 <input ref={foodSearch} type="text" placeholder="What do you want to make ?"></input>
                 
             </div>
