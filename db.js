@@ -1,11 +1,11 @@
 const Knex = require("knex");
-require('dotenv').config();
+require("dotenv").config();
 
 const db = Knex({
   client: "pg",
   connection:
-    process.env.DB_URL ||
-    `postgres://${process.env.DB_USER}@127.0.0.1:5432/${process.env.DB_NAME}`,
+    process.env.DATABASE_URL ||
+    `postgres://${process.env.DATABASE_USER}@127.0.0.1:5432/${process.env.DATABASE_NAME}`,
   searchPath: "public",
 });
 
